@@ -1,0 +1,383 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 1000px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+table {
+    margin: 0 20px;
+    border-spacing: 0;
+    text-align: center;
+    border: solid 1px #f5eabe;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+a:hover { text-decoration: none }
+
+a:visited { color: inherit }
+
+input, select { margin: 5px }
+
+li { margin: 10px 0 }
+
+label { line-height: 30px }
+
+label.error {
+    font-size: smaller;
+    line-height: 20px;
+    font-style: italic;
+}
+
+#main { 
+    background: #eee;
+    
+}
+
+#singleColumn {
+  
+    margin: 20px 30px;
+    text-align: left;
+}
+
+.lightBlue { background-color: #edf8f7 }
+
+.white { background-color: #fff }
+
+.bubble {
+    font-weight: bold;
+    background-color: #f5eabe;
+    padding: 5px;
+    color: inherit;
+    display: inline;
+    border-radius: 4px;
+}
+
+.hMargin { margin: 0 30px }
+
+.smallText { font-size: small }
+
+.reallySmallText { font-size: xx-small }
+
+#header {
+    height: 250px;
+    width: 1000px;
+    background: #aaa;
+}
+#logo {
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.error {
+    color: #c00;
+    font-style: italic;
+}
+
+#logoText {
+    float: left;
+    margin: 70px 0 0 50px;
+    /* font styles apply to text within alt tags */
+    font-family: 'American Typewriter', Magneto, monospace;
+    font-size: 50px;
+    color: #333;
+}
+
+#widgetBar {
+    height: 40px;
+    width: 1000px;
+    float: right;
+    background: #ccc;
+}
+
+#cart {
+    position: absolute;
+    margin: -7px 0 0 -12px;
+}
+
+.horizontalMargin {
+    margin-left: 25px;
+    margin-right: 5px
+}
+
+#viewCart {
+    text-align: left;
+    width: 210px;
+}
+
+.headerWidget {
+    width: 255px;
+    margin: 20px 50px;
+    font-size: small;
+    float: right;
+    line-height: 20px;
+   
+}
+#footer {
+    height: 60px;
+    width: 450px;
+    clear: left;
+    background: #aaa;
+}
+
+#footerText { margin-top: 5px }
+
+#footerDivider {
+    margin: 0 25px;
+    width: 300px;
+}
+
+hr {
+    border: 0;
+    background-color: #333;
+    height: 1px;
+    margin: 0 25px;
+    width: 300px;
+}
+
+
+
+#indexLeftColumn {
+    height: 615px;
+    width: 450px;
+    float: left;
+    background: #ccc;
+}
+
+#indexRightColumn {
+    height: 615px;
+    width: 550px;
+    float: left;
+    background: #eee;
+}
+.categoryBox {
+    height: 176px;
+    width: 212px;
+    margin: 23px 22px 6px;
+    float: inherit;
+    background: #fff;
+}
+
+#welcomeText {
+    margin: 30px 5px 0 30px;
+    line-height: 1.4em;
+}
+.categoryImage {
+    padding: 1px;
+    border:solid 1px #555;
+}
+.categoryLabelText {
+    line-height: 150%;
+    font-size: x-large;
+}
+
+/* category page styles */
+
+#categoryLeftColumn {
+    width: 185px;
+    height:605px;
+    float: left;
+    margin-top: 25px;
+    padding-left: 15px;
+}
+
+#categoryRightColumn {
+    margin-top: 10px;
+    width: 650px;
+    float: left;
+}
+
+.categoryButton {
+    margin: 17px 22px;
+    padding: 10px;
+    display: block;
+    background-color: #d3ede8;
+    width: 139px;
+}
+
+#selectedCategory {
+    background-color: #b2d2d2;
+    margin-left: 10px;
+    width: 139px;
+}
+
+#categoryTitle {
+    margin-top: -40px;
+    font-size: x-large;
+    right: 750px;
+    position: absolute;
+    background-color: #f5eabe;
+    padding: 7px;
+    border-radius: 4px;
+}
+
+.categoryText {
+    line-height: 25px;
+    font-size: x-large;
+    
+}
+
+#productTable { 
+    width: 750px ;
+    
+}
+
+#productTable tr { height: 140px;
+                   
+}
+
+#productTable td { width: 200px;
+                   
+}
+
+/* cart page styles */
+#actionBar {
+    margin: 30px;
+    width: 750px;
+    text-align: center;
+}
+.header{
+        background-color: #87CEEB;  
+}
+.lightBlue{
+        background-color: #ADD8E6;  
+}
+
+#subtotal { margin: 40px 0 20px 430px }
+
+#cartTable { width: 750px }
+
+#cartTable td {
+    width: 145px;
+    height: 90px;
+}
+
+/* checkout page styles */
+#checkoutTable {
+    width: 360px;
+    background-color: #f5eabe;
+    float: left;
+    height: 280px;
+}
+
+#infoBox {
+    width: 300px;
+    padding-left: 30px;
+    float: left;
+}
+
+#priceBox {
+    padding: 10px;
+    margin: 10px 0;
+    height: 128px;
+    background-color: #c3e3e0;
+}
+
+/* confirmation page styles */
+#confirmationText {
+    margin: 0 20px 20px;
+    padding: 10px;
+    background-color: #f5eabe;
+    float: left;
+    border-radius: 4px;
+}
+
+.summaryColumn {
+    margin-top: 15px;
+    width: 50%;
+    float: left;
+}
+
+.detailsTable { text-align: left }
+
+.detailsTable th { padding: 5px 10px }
+
+.detailsTable td {
+    padding: 5px 10px 5px 20px;
+    font-size: small;
+    font-family: "Courier New", courier, monospace;
+}
+
+#orderSummaryTable { width: 100% }
+
+#deliveryAddressTable {
+    
+   width: 50%;
+    margin-left: 15%;
+}
+
+#deliveryAddressTable td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.quantityColumn {
+    text-align: center;
+    width: 62px;
+}
+
+.confirmationPriceColumn {
+    width: 90px;
+    font-weight: normal;
+}
+
+#deliverySurchargeCellLeft {
+    text-align: right;
+    padding: 0;
+}
+
+#deliverySurchargeCellRight { padding: 0 20px }
+
+#totalCellLeft {
+    text-align: right;
+    padding: 0;
+}
+
+#totalCellRight { padding: 0 20px }
+
+#dateProcessedRow { padding: 2px 0 10px 20px }
+
+/* Admin page */
+
+#adminMenu p { margin-left: 15px }
+
+#adminTable {
+    width: 580px;
+    float: left;
+    background-color: #edf8f7;
+}
+
+.alignLeft { text-align: left }
+
+.selectedRow {
+    background-color: #c3e3e0;
+    cursor: pointer;
+}
+
+.noDecoration { text-decoration: none }
+
+.rigidWidth { width:200px }
+
+.embedded {
+    margin: 0;
+    border: none;
+}
+#loginBox {
+    display: inline-block;
+    width: 350px;
+    margin: 0 auto;
+    border: solid 5px #363636;
+    background-color: #C0C0C0;
+    border-radius: 4px;
+    text-align: right;
+    padding-right: 10px;
+}
+lable{
+  text-align: right;
+}
+.inputField { width: 190px }

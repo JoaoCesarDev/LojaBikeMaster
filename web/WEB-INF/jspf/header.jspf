@@ -1,0 +1,263 @@
+
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%-- Set language based on user's choice --%>
+<c:if test="${!empty language}">
+    <fmt:setLocale value="${language}" scope="session" />
+</c:if>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html"-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="CSS\lojabikemaster.css">
+        <link rel="shortcut icon" href="img\bike.ico">
+        
+         <script src="js\jquery-1.4.2.js" type="text/javascript"></script>
+        <script src="js\jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('a.categoryButton').hover(
+                    function () {$(this).animate({backgroundColor: '#b2d2d2'});},
+                    function () {$(this).animate({backgroundColor: '#d3ede8'});}
+                );
+
+                $('div.categoryBox').hover(over, out);
+
+                function over() {
+                    var span = this.getElementsByTagName('span');
+                    $(span[0]).animate({opacity: 0.3});
+                    $(span[1]).animate({color: 'white'});
+
+                }
+
+                function out() {
+                    var span = this.getElementsByTagName('span');
+                    $(span[0]).animate({opacity: 0.7});
+                    $(span[1]).animate({color: '#444'});
+                }
+            });
+        </script>
+        <title><fmt:message key='titulo'/></title>
+    </head>
+     <body>
+       
+        <div id="main">
+             <div id="header">
+                  
+                <div id="widgetBar">
+
+                    <div class="headerWidget">
+                        <%-- widget de seleção de idioma --%>
+                        <c:choose>
+                            <c:when test="${empty sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}">
+                            <c:choose>
+                                    <c:when test="${pageContext.request.locale.language ne 'pt'} && ${pageContext.request.locale.language ne 'es_ES'}">
+                                        Inglês
+                                    </c:when>
+                            <c:otherwise>
+                                    <c:url var="url" value="chooseLanguage">
+                                    <c:param name="language" value="en"/>
+                                    </c:url>
+                                    <div class="bubble"><a href="${url}">Inglês</a></div>
+                            </c:otherwise>
+                            </c:choose> |
+                            
+                            <c:choose>
+                                    <c:when test="${pageContext.request.locale.language ne 'pt'} && ${pageContext.request.locale.language ne 'en'}">
+                                        Espanhol
+                                    </c:when>
+                            <c:otherwise>
+                                    <c:url var="url" value="chooseLanguage">
+                                    <c:param name="language" value="es_ES"/>
+                                    </c:url>
+                                    <div class="bubble"><a href="${url}">Espanhol</a></div>
+                            </c:otherwise>
+                            </c:choose> |
+                            
+                            <c:choose>
+                                    <c:when test="${pageContext.request.locale.language eq 'pt'}">
+                                       Português
+                                    </c:when>
+                            <c:otherwise>
+                                    <c:url var="url" value="chooseLanguage">
+                                    <c:param name="language" value="pt"/>
+                                    </c:url>
+                                    <div class="bubble"><a href="${url}">Português</a></div>
+                            </c:otherwise>
+                            </c:choose>
+                            </c:when>
+                            <%-- Otherwise, render widget according to the set locale --%>
+                            <c:otherwise>
+                            <c:choose>
+                                    <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] ne 'pt'} && ${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] ne 'es_ES'}">
+                                        Inglês
+                                    </c:when>
+                            <c:otherwise>
+                                    <c:url var="url" value="chooseLanguage">
+                                    <c:param name="language" value="en"/>
+                                    </c:url>
+                                    <div class="bubble"><a href="${url}">Inglês</a></div>
+                            </c:otherwise>
+                            </c:choose> |
+                            
+                            <c:choose>
+                                    <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] ne 'pt'} && ${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] ne 'en'}">
+                                        Espanhol
+                                    </c:when>
+                            <c:otherwise>
+                                    <c:url var="url" value="chooseLanguage">
+                                    <c:param name="language" value="es_ES"/>
+                                    </c:url>
+                                    <div class="bubble"><a href="${url}">Espanhol</a></div>
+                            </c:otherwise>
+                            </c:choose> |
+                            
+                           <c:choose>
+                                    <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'pt'}">
+                                        Português
+                                    </c:when>
+                            <c:otherwise>
+                            <c:url var="url" value="chooseLanguage">
+                            <c:param name="language" value="pt"/>
+                            </c:url>
+                            <div class="bubble"><a href="${url}">Português</a></div>
+                            </c:otherwise>
+                            
+                            </c:choose>
+                            <c:choose>
+                                    <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'es_ES'}">
+                                        Espanhol
+                                    </c:when>
+                            <c:otherwise>
+                            <c:url var="url" value="chooseLanguage">
+                            <c:param name="language" value="es_ES"/>
+                            </c:url>
+                            <%--<<div class="bubble"><a href="${url}">Espanhol</a></div>--%>
+                            </c:otherwise>
+                            
+                            </c:choose>
+                            <c:choose>
+                                    <c:when test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'en'}">
+                                        Inglês
+                                    </c:when>
+                            <c:otherwise>
+                            <c:url var="url" value="chooseLanguage">
+                            <c:param name="language" value="en"/>
+                            </c:url>
+                            <%--<div class="bubble"><a href="${url}">Inglês</a></div>--%>
+                            </c:otherwise>
+                            
+                            </c:choose>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+
+                    <%-- checkout widget --%>
+                    <div class="headerWidget">
+                        <%-- tests for the following:
+                            * if cart exists and is not empty
+                            * if the servlet path does not contain '/checkout'
+                            * if the requested view is not checkout
+                            * if the servlet path does not contain '/cart'
+                            * if the requested view is not cart
+                            * if the checkout view is returned with order failure message flagged
+                            * if the checkout view is returned with server-side validation errors detected
+
+                            <c:if test="${!empty sessionScope.cart}">
+                                CART EXISTS AND IS NOT NULL
+                            </c:if>
+                                <BR>
+                            <c:if test="${sessionScope.cart.numberOfItems != 0}">
+                                NUMBER OF ITEMS IN CART IS NOT 0
+                            </c:if>
+                                <BR>
+                            <c:if test="${fn:contains(pageContext.request.servletPath,'/checkout')}">
+                                SERVLET PATH CONTAINS '/checkout'
+                            </c:if>
+                                <BR>
+                            <c:if test="${requestScope['javax.servlet.forward.servlet_path'] ne '/checkout'}">
+                                REQUEST IS NOT CHECKOUT
+                            </c:if>
+                                <BR>
+                            <c:if test="${requestScope.validationErrorFlag ne true}">
+                                VALIDATION ERROR IS NOT FLAGGED
+                            </c:if>
+                                <BR>
+                            <c:if test="${requestScope.orderFailureFlag ne true}">
+                                ORDER FAILURE ERROR IS NOT FLAGGED
+                            </c:if> --%>
+                            <c:if test="${!empty carrinho && carrinho.numeroDeItens != 0 &&
+
+                                      !fn:contains(pageContext.request.servletPath,'/checkout') &&
+                                      requestScope['javax.servlet.forward.servlet_path'] ne '/checkout' &&
+
+                                      !fn:contains(pageContext.request.servletPath,'/pedido') &&
+                                      requestScope['javax.servlet.forward.servlet_path'] ne '/pedido' &&
+
+                                      validationErrorFlag ne true &&
+                                      orderFailureFlag ne true}">
+
+                      <a href="<c:url value='checkout'/>" class="bubble">
+                        <fmt:message key="ProsseguirparaFinalizar"/>
+                      </a>
+                    </c:if>
+                    </div>
+                            
+                     <%-- shopping cart widget --%>       
+
+                    <div class="headerWidget" id="viewCart">
+                       <img src="img\cart.gif" alt="shopping cart icon" id="cart">
+                    
+                         <%-- If 'numberOfItems' property doesn't exist, or if number of items
+                         in cart is 0, output '0', otherwise output 'numberOfItems' --%>
+                         <span class="horizontalMargin">
+                          <c:choose>
+                                <c:when test="${carrinho.numeroDeItens == null}">
+                                    
+                                </c:when>
+                                <c:otherwise>
+                                ${carrinho.numeroDeItens}
+                                </c:otherwise>
+                          </c:choose>
+
+                  <%-- Handle singular/plural forms of 'item' --%>
+                        <c:choose>
+                        <c:when test="${carrinho.numeroDeItens == 1}">
+                          <fmt:message key="item" />
+                        </c:when>
+                        <c:when test="${carrinho.numeroDeItens == 2 ||
+                                        carrinho.numeroDeItens == 3 ||
+                                        carrinho.numeroDeItens == 4}">
+                          <fmt:message key="itens" />
+                        </c:when>
+                        <c:otherwise>
+                          <fmt:message key="Vazio" />
+                        </c:otherwise>
+                        </c:choose>
+                         </span>   
+                        <c:if test="${!empty carrinho && carrinho.numeroDeItens != 0 &&
+
+                                  !fn:contains(pageContext.request.servletPath,'/pedido') &&
+                                  requestScope['javax.servlet.forward.servlet_path'] ne '/pedido'}">
+
+                                  <a href="<c:url value='visualizarcarrinho'/>" class="bubble">
+                                    <fmt:message key="carrinho" />
+                                  </a>
+                         </c:if>  
+                    </div>
+                </div>
+                <a href="<c:url value='/'/>">
+                    <img src="img/lojabikemasterslogo.png" id="logo" alt="Loja Bike Master logo">
+                </a>
+                 <img src="img/lojabikemasterslogotext.png" id="logoText" alt="Loja Bike Master">  
+             </div>
+               
+               
+          
+                
